@@ -4,6 +4,7 @@
 #include<map>
 #include<iterator>
 #include<math.h>
+#include<set>
 
 using namespace std;
 
@@ -11,8 +12,10 @@ class fcm { //This program should provide the entropy of the text, as estimated 
     int k; //number of characters read at one time
     int a; //smoothing parameter
     string f; //file of the raw text
-    map<pair<vector<char>,char>,int> table; //sequence of k size chars, next char, number of times that next char appears
-    map<vector<char>,int> seq;
+    map<pair<vector<wchar_t>,wchar_t>,int> table; //sequence of k size chars, next char, number of times that next char appears
+    map<vector<wchar_t>,int> seq;
+    set<wchar_t> alfabeto;
+
     public: 
         fcm(int ka, int alpha, string file){
             k=ka;
@@ -30,11 +33,14 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         }
 
         // | 0 1 2 3 | 4 5 6 7 8 9 
-        char c;
+        wchar_t c;
         wchar_t ch;
-        vector<char> chars;
+        vector<wchar_t> chars;
         int condition=0;
         while(ifs.get(ch)){
+            
+            alfabeto.insert(ch);
+
             if(condition<k){
                 chars.push_back(ch);
                 condition++;
@@ -49,19 +55,34 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         }
         
         double h = 0;
-        double count_all_seq = 0;
+        double count_all_seq = seq.size();
 
         //-----
 
         for (auto it = table.begin();it != table.end(); it++){
             string str(it->first.first.begin(), it->first.first.end());
-            count_all_seq = seq[it->first.first];
+            //count_all_seq = seq[it->first.first];
             double p = static_cast<double>(it->second) / count_all_seq;
             h = h-p*log2(p);
         }
         
         //prints 
-        cout << "Entropy: " << h << endl;
+        wcout << "Entropy: " << h << endl;
+
+        
+        for(wchar_t asd: alfabeto){
+            wcout << asd << " ";
+        }
+
+        wcout << "\n Alfabeto size: " << alfabeto.size() << endl;
+        wcout << "Max entropy: " << log2(alfabeto.size()) << endl;
+        wcout << "\n#############################################" << endl;
+
+
+
+
+
+
         /*cout << "table " << endl;
         for (auto it = table.begin();it != table.end(); it++){
             string str(it->first.first.begin(), it->first.first.end());
@@ -73,7 +94,7 @@ class fcm { //This program should provide the entropy of the text, as estimated 
             cout <<" "<< str << " " << it->second << endl;
         }*/
 
-        return 1;
+        return 0;
 
 
     }
