@@ -18,17 +18,20 @@ class fcm { //This program should provide the entropy of the text, as estimated 
             k=ka;
             a=alpha;
             f=file;
+            main();
         }
 
     int main(){
-        ifstream ifs(f); //accept the raw text
+        locale::global(locale(""));
+        wifstream ifs(f); //accept the raw text
         if (!ifs.is_open()){
             cerr << "Could not open input file: '" << f << "'" << endl;
             return 1;
         }
 
         // | 0 1 2 3 | 4 5 6 7 8 9 
-        char ch,c;
+        char c;
+        wchar_t ch;
         vector<char> chars;
         int condition=0;
         while(ifs.get(ch)){
