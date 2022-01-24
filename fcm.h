@@ -21,15 +21,15 @@ class fcm { //This program should provide the entropy of the text, as estimated 
             k=ka;
             a=alpha;
             f=file;
-            main();
+            coiso();
         }
 
-    int main(){
+    void coiso(){
         locale::global(locale(""));
         wifstream ifs(f); //accept the raw text
         if (!ifs.is_open()){
             cerr << "Could not open input file: '" << f << "'" << endl;
-            return 1;
+            
         }
 
         // | 0 1 2 3 | 4 5 6 7 8 9 
@@ -55,14 +55,17 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         }
         
         double h = 0;
-        double count_all_seq = seq.size();
+        double count_all_seq = 0;
 
         //-----
 
         for (auto it = table.begin();it != table.end(); it++){
             string str(it->first.first.begin(), it->first.first.end());
-            //count_all_seq = seq[it->first.first];
+            count_all_seq = seq[it->first.first];
+            //wcout << "n vezes q a sequencia aparece(tas contente?): " << count_all_seq << endl;
+            //wcout << "numero cenas: "  << it->second << endl;
             double p = static_cast<double>(it->second) / count_all_seq;
+
             h = h-p*log2(p);
         }
         
@@ -82,19 +85,23 @@ class fcm { //This program should provide the entropy of the text, as estimated 
 
 
 
-
-        /*cout << "table " << endl;
+        
+        wcout << "table " << endl;
         for (auto it = table.begin();it != table.end(); it++){
-            string str(it->first.first.begin(), it->first.first.end());
-            cout <<" "<< str << " " << it->first.second << " " << it->second << endl;
-        }*/
-        /*cout << "seq" << endl;
+            wstring str(it->first.first.begin(), it->first.first.end());
+            wcout << "Seq size: " << str.length() << endl;
+            wcout << "\"\"" << endl;
+            wcout <<" "<< str << " " << it->first.second << " \"\" " << it->second << endl;
+            
+
+        }/*
+        wcout << "seq" << endl;
         for (auto it = seq.begin();it != seq.end(); it++){
-            string str(it->first.begin(), it->first.end());
-            cout <<" "<< str << " " << it->second << endl;
+            wstring str(it->first.begin(), it->first.end());
+            wcout <<" "<< str << " " << it->second << endl;
         }*/
 
-        return 0;
+      
 
 
     }
