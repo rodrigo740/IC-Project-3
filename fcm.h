@@ -54,23 +54,27 @@ class fcm { //This program should provide the entropy of the text, as estimated 
             }
         }
         
-        double h = 0;
+        double local_entropy = 0;
+        double global_entropy = 0;
+        double sum_one_seq = 0;
+        double sum_seq = 0;
         double count_all_seq = 0;
-
+        for (auto it = seq.begin();it != seq.end(); it++){
+            count_all_seq += seq[it->first];
+        }
         //-----
 
         for (auto it = table.begin();it != table.end(); it++){
             string str(it->first.first.begin(), it->first.first.end());
-            count_all_seq = seq[it->first.first];
-            //wcout << "n vezes q a sequencia aparece(tas contente?): " << count_all_seq << endl;
-            //wcout << "numero cenas: "  << it->second << endl;
-            double p = static_cast<double>(it->second) / count_all_seq;
-
-            h = h-p*log2(p);
+            sum_one_seq = seq[it->first.first];
+            sum_seq += seq[it->first.first];
+            double p = static_cast<double>(it->second)/sum_one_seq;
+            local_entropy -= p*log2(p);
         }
         
         //prints 
-        wcout << "Entropy: " << h << endl;
+        global_entropy += local_entropy * ((double)sum_seq/(double)count_all_seq);
+        wcout << "Entropy: " << global_entropy << endl;
 
         
         for(wchar_t asd: alfabeto){
@@ -82,23 +86,15 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         wcout << "\n#############################################" << endl;
 
 
-
-
-
-        
-        wcout << "table " << endl;
+        /*wcout << "table " << endl;
         for (auto it = table.begin();it != table.end(); it++){
-            wstring str(it->first.first.begin(), it->first.first.end());
-            wcout << "Seq size: " << str.length() << endl;
-            wcout << "\"\"" << endl;
-            wcout <<" "<< str << " " << it->first.second << " \"\" " << it->second << endl;
-            
-
-        }/*
+            string str(it->first.first.begin(), it->first.first.end());
+            wcout <<" "<< str.c_str() << " " << it->first.second << " " << it->second << endl;
+        }
         wcout << "seq" << endl;
         for (auto it = seq.begin();it != seq.end(); it++){
-            wstring str(it->first.begin(), it->first.end());
-            wcout <<" "<< str << " " << it->second << endl;
+            string str(it->first.begin(), it->first.end());
+            wcout <<" "<< str.c_str() << " " << it->second << endl;
         }*/
 
       
