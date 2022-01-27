@@ -1,4 +1,4 @@
-#include "fcm.h"
+#include "Fcm.h"
 
 int main(int argc, char **argv){
 
@@ -10,6 +10,7 @@ int main(int argc, char **argv){
     cout << "Processing file: " << argv[1]  << endl;
 
 
-    fcm fcm4 = fcm(8,0.3,argv[1]);
+    Fcm fcm4 = Fcm(3,0.3,argv[1]);
+    cout << "Entropy: " << fcm4.doFCM() << endl;
     return 0;
 }

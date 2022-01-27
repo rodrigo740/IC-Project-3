@@ -28,7 +28,19 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         float nc = (float)table[make_pair(abc,c)]; //n of c knowing abc
         float n=0;
         for(auto it = table.begin();it != table.end(); it++){ //Sum to get total n of a line
-            n+= (float)table[make_pair(abc,it->first.second)];
+         
+
+    float prob(wstring wstr){                                            //probability of an event knowing a certain context
+        float nc = (float)table[wstr];                                   //n of c knowing wstr
+        float n = 0;
+
+        /*for(auto it = table.begin();it != table.end(); it++){           //Sum to get total n of a line
+            n += (float)table[make_pair(wstr,it->first.second)];
+        }*/
+        n = (float)seq[];
+
+b         return (float)(nc+alfa)/(n+alfa*alfabeto.size());
+  }   n+= (float)table[make_pair(abc,it->first.second)];
         }
         return (float)(nc+alfa)/(n+alfa*alfabeto.size());
     }
@@ -80,10 +92,9 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         //-----
 
         for (auto it = table.begin();it != table.end(); it++){
-            string str(it->first.first.begin(), it->first.first.end());
             sum_seq = seq[it->first.first];
             //double p = static_cast<double>(it->second)/sum_one_seq;
-            float p = prob(it->first.second, it->first.first);
+            float p = prob(it->first.back(), it->first.first);
             global_entropy -= p*log2(p)*((double)sum_seq/(double)count_all_seq);
         }
         //mal codificado, rever isto
