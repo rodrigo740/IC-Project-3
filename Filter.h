@@ -34,10 +34,8 @@ class Filter {
         while(wif.get(c)){
             if((numbers.find(c) == numbers.end())){
                 wof << (wchar_t) towlower(c);
-                wcout << (wchar_t) c;
             }
         }
-        wcout << endl;
         wif.close();
         wof.close();
     }

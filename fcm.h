@@ -10,21 +10,34 @@ using namespace std;
 
 class fcm { //This program should provide the entropy of the text, as estimated by the model.
     int k; //number of characters read at one time
-    int a; //smoothing parameter
+    float alfa; //smoothing parameter
     string f; //file of the raw text
     map<pair<vector<wchar_t>,wchar_t>,int> table; //sequence of k size chars, next char, number of times that next char appears
     map<vector<wchar_t>,int> seq;
     set<wchar_t> alfabeto;
 
     public: 
-        fcm(int ka, int alpha, string file){
+        fcm(int ka, float alpha, string file){
             k=ka;
-            a=alpha;
+            alfa=alpha;
             f=file;
-            coiso();
+            main();
         }
 
-    void coiso(){
+    float prob(wchar_t c, vector<wchar_t> abc){ //probability of an event knowing a certain context
+        float nc = (float)table[make_pair(abc,c)]; //n of c knowing abc
+        float n=0;
+        for(auto it = table.begin();it != table.end(); it++){ //Sum to get total n of a line
+            n+= (float)table[make_pair(abc,it->first.second)];
+        }
+        return (float)(nc+alfa)/(n+alfa*alfabeto.size());
+    }
+    
+    int nbits(){
+        return 1;
+    }
+
+    void main(){
         locale::global(locale(""));
         wifstream ifs(f); //accept the raw text
         if (!ifs.is_open()){
@@ -59,6 +72,8 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         double sum_one_seq = 0;
         double sum_seq = 0;
         double count_all_seq = 0;
+
+        //total number of sequences 
         for (auto it = seq.begin();it != seq.end(); it++){
             count_all_seq += seq[it->first];
         }
@@ -66,17 +81,15 @@ class fcm { //This program should provide the entropy of the text, as estimated 
 
         for (auto it = table.begin();it != table.end(); it++){
             string str(it->first.first.begin(), it->first.first.end());
-            sum_one_seq = seq[it->first.first];
-            sum_seq += seq[it->first.first];
-            double p = static_cast<double>(it->second)/sum_one_seq;
-            local_entropy -= p*log2(p);
+            sum_seq = seq[it->first.first];
+            //double p = static_cast<double>(it->second)/sum_one_seq;
+            float p = prob(it->first.second, it->first.first);
+            global_entropy -= p*log2(p)*((double)sum_seq/(double)count_all_seq);
         }
-        
-        //prints 
-        global_entropy += local_entropy * ((double)sum_seq/(double)count_all_seq);
+        //mal codificado, rever isto
+        //global_entropy += local_entropy * ((double)count_all_seq/(double)sum_seq);
         wcout << "Entropy: " << global_entropy << endl;
 
-        
         for(wchar_t asd: alfabeto){
             wcout << asd << " ";
         }
@@ -84,20 +97,6 @@ class fcm { //This program should provide the entropy of the text, as estimated 
         wcout << "\n Alfabeto size: " << alfabeto.size() << endl;
         wcout << "Max entropy: " << log2(alfabeto.size()) << endl;
         wcout << "\n#############################################" << endl;
-
-
-        /*wcout << "table " << endl;
-        for (auto it = table.begin();it != table.end(); it++){
-            string str(it->first.first.begin(), it->first.first.end());
-            wcout <<" "<< str.c_str() << " " << it->first.second << " " << it->second << endl;
-        }
-        wcout << "seq" << endl;
-        for (auto it = seq.begin();it != seq.end(); it++){
-            string str(it->first.begin(), it->first.end());
-            wcout <<" "<< str.c_str() << " " << it->second << endl;
-        }*/
-
-      
 
 
     }

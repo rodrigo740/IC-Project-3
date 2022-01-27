@@ -1,11 +1,15 @@
 #include "fcm.h"
 
-int main(){
+int main(int argc, char **argv){
 
-    fcm fcm4 = fcm(3,0,"texts/portugues_filtered.txt");
-    fcm fcm1 = fcm(3,0,"texts/teste2.txt");
-    fcm fcm2 = fcm(3,0,"texts/sample_texts/Japanese-Lipsum.txt");
-    fcm fcm3 = fcm(3,0,"texts/jp_filtered.txt");
-    fcm fcm5 = fcm(3,0,"texts/pt_filtered.txt");
+    if(argc != 2){
+        cerr << "Usage: ./teste_fcm.o <input_text>\nExample: ./testFilter.o texts/test.txt" << endl;
+        return -1;
+    }
+
+    cout << "Processing file: " << argv[1]  << endl;
+
+
+    fcm fcm4 = fcm(8,0.3,argv[1]);
     return 0;
 }
