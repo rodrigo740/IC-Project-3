@@ -28,40 +28,18 @@ class Filter {
 
         locale::global(locale(""));                 // activate user-preferred locale
         wifstream wif = wifstream(input_fileName);
-        wofstream wof = wofstream("hello.txt");
+        wofstream wof = wofstream(output_fileName);
         wchar_t c;
 
         while(wif.get(c)){
-            
             if((numbers.find(c) == numbers.end())){
                 wof << (wchar_t) towlower(c);
+                wcout << (wchar_t) c;
             }
-            /*
-            if((c != L'\n') && (numbers.find(c) == numbers.end())){
-            }*/
         }
-        
+        wcout << endl;
         wif.close();
         wof.close();
-
-        ifstream ifs = ifstream("hello.txt");
-        ofstream ofs = ofstream(output_fileName);
-        char ch;
-        FILE* input_file = fopen("hello.txt", "r");
-        unsigned char character = 0;
-        while (!feof(input_file)){
-            character = getc(input_file);
-
-            if(character != '\n'){
-                cout << character << "-";
-                ofs << character;
-            }else{
-                ofs << ' ';
-            }
-        }
-        fclose(input_file);
-        ifs.close();
-        ofs.close();
     }
 
 };
