@@ -8,7 +8,7 @@ RM = rm -f
 CFLAGS  = -g -Wall
 
 # The build target 
-TARGETS = teste_fcm testFilter
+TARGETS = teste_fcm testFilter lang
 
 all: $(TARGETS)
 
@@ -17,6 +17,9 @@ teste_fcm: teste_fcm.cpp
 
 testFilter: testFilter.cpp
 			$(CXX) $(CFLAGS) testFilter.cpp -o testFilter.o
+
+lang: lang.cpp
+			$(CXX) $(CFLAGS) lang.cpp -o lang.o
 
 clean:
 			$(RM) $(TARGETS).o
