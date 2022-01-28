@@ -50,21 +50,33 @@ class Fcm {                                         //This program should provid
         wchar_t c, ch;
         wstring chars, tmp;
         int condition=0;
-
+        wcout << endl;
         while(wifs.get(ch)){
-            
+            wcout << "peek: " << ch << "   cond: " << condition<< endl;
+            /*
+            a
+            b
+            c
+            d
+
+            */
             alfabeto.insert(ch);
             /*abcdefghijk k=3 abc d - bcd e ...*/ 
+            chars += ch;
             if(condition<k){
-                chars += ch;
+                 //abcd
                 condition++;
             }else{
-                c = wifs.peek();
-                tmp = chars + c;
-                table[tmp]++;                           //increase the current counting
-                seq[chars]++;
-                chars.erase(0,1);                       //delete first char
-                condition=k-1;
+                //abcdef
+                wcout << "chars: " << chars << endl; 
+                //c = wifs.peek();
+                
+                //tmp = chars;      //abcd
+                table[chars]++; 
+                seq[chars.substr(0, k)]++;  //abc
+                chars.erase(0,1); //bcd                   
+                
+                condition=k;
             }
         }
         
@@ -75,13 +87,18 @@ class Fcm {                                         //This program should provid
         float count_all_seq = 0;
 
         //total number of sequences
+        wcout << "SEQ --------------------" << endl;
         for (auto it = seq.begin();it != seq.end(); it++){
+            wcout <<"|" << it->first << "|" << it->second << endl;
             count_all_seq += (float) seq[it->first];
         }
+        wcout << "-----------------------" << endl;
         //-----
-        wcout << "caq: " << count_all_seq << endl;
-        for (auto it = table.begin();it != table.end(); it++){
 
+        wcout << "caq: " << count_all_seq << endl;
+        wcout << "TABLE --------------------" << endl;
+        for (auto it = table.begin();it != table.end(); it++){
+            wcout <<"|" << it->first << "|" << it->second << endl;
             sum_seq = seq[it->first];
             //float p = static_cast<float>(it->second)/sum_one_seq;
             float p = prob(it->first);
@@ -89,6 +106,7 @@ class Fcm {                                         //This program should provid
             //wcout << p << endl;
 
         }
+        wcout << "-----------------------" << endl;
         //mal codificado, rever isto
         //global_entropy += local_entropy * ((double)count_all_seq/(double)sum_seq);
         
@@ -101,7 +119,7 @@ class Fcm {                                         //This program should provid
         wcout << "Max entropy: " << log2(alfabeto.size()) << endl;
         wcout << "\n#############################################" << endl;
 
-        return global_entropy;
+        return (float)global_entropy;
     }
 
 };
