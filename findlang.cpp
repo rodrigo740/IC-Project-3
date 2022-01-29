@@ -13,7 +13,7 @@ using namespace experimental::filesystem;
 int main(int argc, char *argv[]){
 
     if(argc != 5){
-        cerr << "Usage: ./findlang.cpp <input_text> <k> <alfa> <mode>, mode= -f/-nf\nExample: ./findlang texts/test.txt 3 0.1 -f" << endl;
+        cerr << "Usage: ./findlang.o <input_text> <k> <alfa> <mode>, mode= -f/-nf\nExample: ./findlang.o texts/test.txt 3 0.1 -f" << endl;
         return -1;
     }
 
@@ -25,8 +25,6 @@ int main(int argc, char *argv[]){
         return -1;
     }
     
-
-
     cout << "Starting" << endl;
     auto start = high_resolution_clock::now();
 
@@ -70,6 +68,9 @@ int main(int argc, char *argv[]){
             language = model;
         }
     }
+
+    language = (language.substr(language.find("/")+1, language.length() - language.find("/")));
+    language = language.substr(0, language.find("."));
 
     cout << "Text " << argv[1] <<" is likely written in " << language <<endl;
     auto stop = high_resolution_clock::now();
