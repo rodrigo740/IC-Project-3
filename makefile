@@ -9,7 +9,8 @@ CFLAGS  = -g -Wall
 LIB = -lstdc++fs
 
 # The build target 
-TARGETS = teste_fcm testFilter lang findlang
+TARGETS = teste_fcm findlang testFilter test_lang
+CLEAN = teste_fcm.o findlang.o testFilter.o test_lang.o
 
 all: $(TARGETS)
 
@@ -22,5 +23,8 @@ testFilter: testFilter.cpp
 findlang: findlang.cpp
 			$(CXX) $(CFLAGS) findlang.cpp $(LIB) -o findlang.o 
 
+test_lang: test_lang.cpp
+			$(CXX) $(CFLAGS) test_lang.cpp -o test_lang.o 
+
 clean:
-			$(RM) $(TARGETS).o
+			$(RM) $(CLEAN)

@@ -1,4 +1,4 @@
-#include "lang.h"
+#include "include/Lang.h"
 #include <set>
 #include <vector>
 #include <experimental/filesystem>
@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
     int k = stoi(argv[2]);
     double alfa = stod(argv[3]);
 
-    const path path{"lang/"};
+    const path path{"lang_models/"};
     float diff = 0;
     float min = 9999;
     string language, model;
