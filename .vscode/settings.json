@@ -19,6 +19,7 @@
         "ostream": "cpp",
         "algorithm": "cpp",
         "limits": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "filesystem": "cpp"
     }
 }
