@@ -25,7 +25,7 @@ class Fcm {                                         //This program should provid
         }
 
     float prob(wstring wstr){                                             //probability of an event knowing a certain context
-        float nc = table[wstr];                                   //n of c knowing wstr
+        float nc = table[wstr];                                           //n of c knowing wstr
         float n = seq[wstr.substr(0,k)]; 
 
         return (float)(nc+alfa)/(n+alfa*alfabeto.size());
@@ -79,16 +79,46 @@ class Fcm {                                         //This program should provid
             global_entropy += local * (sum_seq/count_all_seq);
         }
 
-        /*
-        for(wchar_t asd: alfabeto){
-            wcout << asd << " ";
-        }
-
-        //wcout << "\n Alfabeto size: " << alfabeto.size() << endl;
-        wcout << "Max entropy: " << log2(alfabeto.size()) << endl;
-        wcout << "\n#############################################" << endl;
-        */
         return global_entropy;
+    }
+
+    float auxFcm(string finput){ //calculate the number of bits according to existing table
+        locale::global(locale(""));
+        wifstream wifs2(finput);                                                 //accept the raw text
+        if (!wifs2.is_open()){
+            cerr << "Could not open input file: '" << finput << "'" << endl;
+            return -1;
+        }
+        
+        wchar_t ch;
+        wstring chars, tmp;
+        int condition=0;
+        float p;
+        float total=0;
+        float count =0;
+        float num_bits;
+        wcout << endl;
+        while(wifs2.get(ch)){
+            alfabeto.insert(ch);
+            chars += ch;
+            if(condition<k){
+                condition++;
+            }else{
+                if(table[chars] != NULL){
+                    p = prob(chars);
+                    num_bits = -log2(p);
+                }
+                else{
+                    float n = seq[chars.substr(0,k)]; 
+                    num_bits = -log2((alfa)/(n+alfa*alfabeto.size()));
+                }
+                total += num_bits;
+                chars.erase(0,1); 
+                condition=k;
+                count++;
+            }
+        }
+        return total/count;
     }
 
 };

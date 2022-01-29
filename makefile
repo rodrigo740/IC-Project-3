@@ -5,10 +5,11 @@ RM = rm -f
 # compiler flags:
 #  -g     - this flag adds debugging information to the executable file
 #  -Wall  - this flag is used to turn on most compiler warnings
-CFLAGS  = -g -Wall
+CFLAGS  = -g -Wall 
+LIB = -lstdc++fs
 
 # The build target 
-TARGETS = teste_fcm testFilter lang
+TARGETS = teste_fcm testFilter lang findlang
 
 all: $(TARGETS)
 
@@ -18,8 +19,8 @@ teste_fcm: teste_fcm.cpp
 testFilter: testFilter.cpp
 			$(CXX) $(CFLAGS) testFilter.cpp -o testFilter.o
 
-lang: lang.cpp
-			$(CXX) $(CFLAGS) lang.cpp -o lang.o
+findlang: findlang.cpp
+			$(CXX) $(CFLAGS) findlang.cpp $(LIB) -o findlang.o 
 
 clean:
 			$(RM) $(TARGETS).o

@@ -1,15 +1,8 @@
-#include<iostream>
-#include<fstream>
-#include<vector>
-#include<map>
-#include<iterator>
-#include<math.h>
-#include"Fcm.h"
-using namespace std;
+#include"lang.h"
 
 int main(int argc, char *argv[]) { 
 
-    if(argc < 5) {
+    if(argc != 5) {
         cout << "Usage: ./lang.o <modelLanguage> <text> <k> <alpha>" << endl;
         return -1;
     }
