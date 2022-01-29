@@ -19,6 +19,7 @@ class lang{
 
     float doLang(){
         Fcm fcm_lang = Fcm(k,alpha,file_lang);
+        float entr = fcm_lang.doFCM();
         float x = fcm_lang.auxFcm(file_text);
 
         return x;
