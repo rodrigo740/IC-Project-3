@@ -6,7 +6,10 @@
 using namespace std;
 
 class Filter {
-
+    /**
+    *\class Filter
+    * This class filters the input file text, removing all numbers and transforming all letters to lowercase.
+    */
     string input_fileName;
     string output_fileName;
     set<wchar_t> numbers = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};

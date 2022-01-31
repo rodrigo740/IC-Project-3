@@ -5,11 +5,11 @@
 
 
 using namespace std;
-
+    /** \file testFilter.cpp
+     * Function to test the \ref Filter class
+     * 
+     */
 /* This program  will filter any text
-
-
-
 */
 
 int main(int argc, char **argv){

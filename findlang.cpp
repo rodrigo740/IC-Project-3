@@ -11,7 +11,9 @@ using namespace experimental::filesystem;
 
 
 int main(int argc, char *argv[]){
-
+    /** \file findlang.cpp
+    * Function to predict the language of a file.
+    */
     if(argc != 5){
         cerr << "Usage: ./findlang.o <input_text> <k> <alfa> <mode>, mode= -f/-nf\nExample: ./findlang.o texts/test.txt 3 0.1 -f" << endl;
         return -1;
@@ -57,7 +59,7 @@ int main(int argc, char *argv[]){
             sfm = model;
         }
         
-        lang l = lang(sfm, filter_file, k, alfa);
+        Lang l = Lang(sfm, filter_file, k, alfa);
         
         diff = l.doLang();
 
