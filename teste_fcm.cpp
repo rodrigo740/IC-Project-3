@@ -1,8 +1,11 @@
 #include "include/Fcm.h"
 
 int main(int argc, char **argv){
-
-    if(argc != 5){
+    /** \file teste_fcm.cpp 
+     * Function to test the \ref Fcm class
+     * 
+     */
+    if(argc != 5){  
         cerr << "Usage: ./teste_fcm.o <input_text> <k> <alfa>\nExample: ./testFilter.o lang_models/portuguese.txt texts/test.txt 3 0.1" << endl;
         return -1;
     }

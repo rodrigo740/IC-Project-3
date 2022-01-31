@@ -1,0 +1,8 @@
+/**
+* \mainpage Project 3 - Group 1
+* \section Classes
+* The group created the following classes that were required: \ref Fcm ,\ref Lang ,\ref findlang.cpp
+*
+* \section Auxiliary Files
+* The group decided to create 4 auxiliary files: \ref Filter ,\ref testFilter.cpp ,\ref teste_fcm.cpp ,\ref test_lang.cpp
+*/

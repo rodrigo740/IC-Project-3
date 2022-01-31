@@ -8,6 +8,11 @@
 using namespace std;
 
 class Fcm {                                         //This program should provide the entropy of the text, as estimated by the model.
+    /**
+    *\class Fcm
+    * This class creates a finite model context table of a text.    
+    * Using this table it calculates the entropy, probability of a certain event after a context, probability of a context and minimum number of bits to compress.
+    */
     int k;                                          //number of characters read at one time
     float alfa;                                     //smoothing parameter
     string f;                                       //file of the raw text
@@ -18,6 +23,9 @@ class Fcm {                                         //This program should provid
     set<wchar_t> alfabeto;
 
     public: 
+    /**
+    * This class is composed of a constructor that receives the order, the smoothing parameter and the name of the input file.
+    */
         Fcm(int ka, float alpha, string file){
             k=ka;
             alfa=alpha;
@@ -25,6 +33,10 @@ class Fcm {                                         //This program should provid
         }
 
     float prob(wstring wstr){                                             //probability of an event knowing a certain context
+        /**
+         * \memberof(Fcm)
+         * Function that calculates the probability of an event knowing that a certain context ocurred.
+        */
         float nc = table[wstr];                                           //n of c knowing wstr
         float n = seq[wstr.substr(0,k)]; 
 
@@ -32,6 +44,10 @@ class Fcm {                                         //This program should provid
     }
 
     float doFCM(){
+        /**
+         * \memberof(Fcm)
+         * Function that calculates the entropy of the whole text.
+        */
         locale::global(locale(""));
         wifstream wifs(f);                                                 //accept the raw text
         if (!wifs.is_open()){
@@ -83,6 +99,10 @@ class Fcm {                                         //This program should provid
     }
 
     float auxFcm(string finput){ //calculate the number of bits according to existing table
+        /**
+         * \memberof(Fcm)
+         * Function that calculates the minimum number of bits to compress a file "finput" according to the table generated previously for the file that the fcm was constructed with.
+        */
         locale::global(locale(""));
         wifstream wifs2(finput);                                                 //accept the raw text
         if (!wifs2.is_open()){
