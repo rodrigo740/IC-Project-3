@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
         }
     }
 
-    language = (language.substr(language.find("/")+1, language.length() - language.find("/")));
+    language = language.substr(language.find("/")+1, language.length() - language.find("/"));
     language = language.substr(0, language.find("."));
 
     cout << "Text " << argv[1] <<" is likely written in " << language <<endl;
