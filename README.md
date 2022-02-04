@@ -51,7 +51,7 @@ Compile specific file:
 ##### `make test_lang`
 ##### `make findlang`
 
-Clean the repository(remove all executables):
+Clean the repository (remove all executables):
 
 ##### `make clean`
 
