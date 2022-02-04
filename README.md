@@ -8,7 +8,7 @@ or
 ##### `google-chrome html/index.html`
 
 In the previous commands "firefox" and "google-chrome" can be swapped to the name of the preferred web browser of the user.
-Alternatively the user can also open the ###### `html` folder and open the ##### `index.html` file with the browser of preference.
+Alternatively the user can also open the `html` folder and open the `index.html` file with the browser of preference.
 
 # Contents of the repository
 
@@ -66,6 +66,8 @@ Clean the repository(remove all executables):
 This program supports two modes of operation, filtered and not filtered and is necessary to specify which mode needs to be used while running the program by using "-f" for filtered mode and "-nf" for not filtered mode.
 
 ##### `./findlang.o texts/sample_texts/lusiadas.txt 3 0.1 -f`
+or
+##### `./findlang.o texts/sample_texts/lusiadas.txt 3 0.1 -nf`
 
 
 
