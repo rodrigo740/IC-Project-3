@@ -33,10 +33,10 @@ This project has 3 cpp files:
 - teste_fcm.cpp
 - findlang.cpp
 
-The ### `testFilter.cpp` is used to filter the input text given, this is done by removing all numbers from the text and converting all characters to their lower case version.
-The ### `test_lang.cpp` is used to get the number of bits necessary to compress the given text in the provided model.
-The ### `teste_fcm.cpp` is used to get the entropy of the model text given and number of bits necessary to compress the given text in the provided model.
-The ### `findlang.cpp` is used to determine in which language the given text is written in, this program will determine the amount of bits necessary to compress the given text in all of the models present in the "lang_models" folder, then it will choose the lower amount of bits and the language that matches that amount as the language the input text is written in. 
+The `testFilter.cpp` is used to filter the input text given, this is done by removing all numbers from the text and converting all characters to their lower case version.
+The `test_lang.cpp` is used to get the number of bits necessary to compress the given text in the provided model.
+The `teste_fcm.cpp` is used to get the entropy of the model text given and number of bits necessary to compress the given text in the provided model.
+The `findlang.cpp` is used to determine in which language the given text is written in, this program will determine the amount of bits necessary to compress the given text in all of the models present in the "lang_models" folder, then it will choose the lower amount of bits and the language that matches that amount as the language the input text is written in. 
 
 # Instructions
 
