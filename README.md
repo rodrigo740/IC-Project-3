@@ -1,4 +1,4 @@
-# Project-3: Finite Context Models
+# Project 3: Finite Context Models
 
 This project provides a makefile, so it can be easy to compile and run all of the programs present in this repository and a doxygen documentation.
 To use this documentation one just needs to run the following command while in the base folder of the repository:
