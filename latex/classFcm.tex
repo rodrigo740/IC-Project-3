@@ -1,48 +1,47 @@
-\hypertarget{classFcm}{}\doxysection{Fcm Class Reference}
+\hypertarget{classFcm}{}\section{Fcm Class Reference}
 \label{classFcm}\index{Fcm@{Fcm}}
-\doxysubsection*{Public Member Functions}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classFcm_acf28ce4cfb889f3d31d92c79ae2516c0}{Fcm}} (int ka, float alpha, string file)
+\hyperlink{classFcm_acf28ce4cfb889f3d31d92c79ae2516c0}{Fcm} (int ka, float alpha, string file)
 \item 
-float \mbox{\hyperlink{classFcm_a4c5faff6ef8a999d3bb497e2ee9564ec}{prob}} (wstring wstr)
+float \hyperlink{classFcm_a4c5faff6ef8a999d3bb497e2ee9564ec}{prob} (wstring wstr)
 \item 
-float \mbox{\hyperlink{classFcm_a0efbdb9b781da543be2a9a86b73b528d}{do\+F\+CM}} ()
+float \hyperlink{classFcm_a0efbdb9b781da543be2a9a86b73b528d}{do\+F\+CM} ()
 \item 
-float \mbox{\hyperlink{classFcm_a46ff33d5782a0ff3e041106977917ef2}{aux\+Fcm}} (string finput)
+float \hyperlink{classFcm_a46ff33d5782a0ff3e041106977917ef2}{aux\+Fcm} (string finput)
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-This class creates a finite model context table of a text. ~\newline
- Using this table it calculates the entropy, probability of a certain event after a context, probability of a context and minimum number of bits to compress. 
+\subsection{Detailed Description}
+This class creates a finite model context table of a text. Using this table it calculates the entropy, probability of a certain event after a context, probability of a context and minimum number of bits to compress. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
+\subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classFcm_acf28ce4cfb889f3d31d92c79ae2516c0}\label{classFcm_acf28ce4cfb889f3d31d92c79ae2516c0}} 
 \index{Fcm@{Fcm}!Fcm@{Fcm}}
 \index{Fcm@{Fcm}!Fcm@{Fcm}}
-\doxysubsubsection{\texorpdfstring{Fcm()}{Fcm()}}
+\subsubsection{\texorpdfstring{Fcm()}{Fcm()}}
 {\footnotesize\ttfamily Fcm\+::\+Fcm (\begin{DoxyParamCaption}\item[{int}]{ka,  }\item[{float}]{alpha,  }\item[{string}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 This class is composed of a constructor that receives the order, the smoothing parameter and the name of the input file. 
 
-\doxysubsection{Member Function Documentation}
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{classFcm_a46ff33d5782a0ff3e041106977917ef2}\label{classFcm_a46ff33d5782a0ff3e041106977917ef2}} 
-\index{Fcm@{Fcm}!auxFcm@{auxFcm}}
-\index{auxFcm@{auxFcm}!Fcm@{Fcm}}
-\doxysubsubsection{\texorpdfstring{auxFcm()}{auxFcm()}}
+\index{Fcm@{Fcm}!aux\+Fcm@{aux\+Fcm}}
+\index{aux\+Fcm@{aux\+Fcm}!Fcm@{Fcm}}
+\subsubsection{\texorpdfstring{aux\+Fcm()}{auxFcm()}}
 {\footnotesize\ttfamily float aux\+Fcm (\begin{DoxyParamCaption}\item[{string}]{finput }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 ) Function that calculates the minimum number of bits to compress a file \char`\"{}finput\char`\"{} according to the table generated previously for the file that the fcm was constructed with.\mbox{\Hypertarget{classFcm_a0efbdb9b781da543be2a9a86b73b528d}\label{classFcm_a0efbdb9b781da543be2a9a86b73b528d}} 
-\index{Fcm@{Fcm}!doFCM@{doFCM}}
-\index{doFCM@{doFCM}!Fcm@{Fcm}}
-\doxysubsubsection{\texorpdfstring{doFCM()}{doFCM()}}
+\index{Fcm@{Fcm}!do\+F\+CM@{do\+F\+CM}}
+\index{do\+F\+CM@{do\+F\+CM}!Fcm@{Fcm}}
+\subsubsection{\texorpdfstring{do\+F\+C\+M()}{doFCM()}}
 {\footnotesize\ttfamily float do\+F\+CM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 ) Function that calculates the entropy of the whole text.\mbox{\Hypertarget{classFcm_a4c5faff6ef8a999d3bb497e2ee9564ec}\label{classFcm_a4c5faff6ef8a999d3bb497e2ee9564ec}} 
 \index{Fcm@{Fcm}!prob@{prob}}
 \index{prob@{prob}!Fcm@{Fcm}}
-\doxysubsubsection{\texorpdfstring{prob()}{prob()}}
+\subsubsection{\texorpdfstring{prob()}{prob()}}
 {\footnotesize\ttfamily float prob (\begin{DoxyParamCaption}\item[{wstring}]{wstr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 ) Function that calculates the probability of an event knowing that a certain context ocurred.

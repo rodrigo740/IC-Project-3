@@ -6,7 +6,7 @@ int main(int argc, char **argv){
      * 
      */
     if(argc != 5){  
-        cerr << "Usage: ./teste_fcm.o <input_text> <k> <alfa>\nExample: ./testFilter.o lang_models/portuguese.txt texts/test.txt 3 0.1" << endl;
+        cerr << "Usage: ./teste_fcm.o <input_text> <k> <alfa>\nExample: ./teste_fcm.o lang_models/portuguese.txt texts/test.txt 3 0.1" << endl;
         return -1;
     }
 
