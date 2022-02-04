@@ -1,7 +1,5 @@
 #include "include/Lang.h"
 #include "include/Filter.h"
-#include <set>
-#include <vector>
 #include <experimental/filesystem>
 #include <chrono>
 
@@ -36,6 +34,8 @@ int main(int argc, char *argv[]){
     const path path{"lang_models/"};
     float diff = 0;
     float min = 9999;
+    float average = 0;
+    int modelsCount = 0;
     string language, model, sfm, filter_file = argv[1];
 
     if (mode == "-f")
@@ -63,7 +63,9 @@ int main(int argc, char *argv[]){
         
         diff = l.doLang();
 
-        cout << "Model File: " << model << " num of bits: " << diff << endl;
+        cout << "Model File: " << sfm << "\nnum of bits/symbol: " << diff << endl;
+        average += diff;
+        modelsCount += 1;
 
         if (min > diff){
             min = diff;
@@ -71,10 +73,15 @@ int main(int argc, char *argv[]){
         }
     }
 
+    average -= min;
+    modelsCount -= 1;
+    average /= modelsCount;
+
     language = language.substr(language.find("/")+1, language.length() - language.find("/"));
     language = language.substr(0, language.find("."));
 
-    cout << "Text " << argv[1] <<" is likely written in " << language <<endl;
+    cout << "\nText " << argv[1] <<" is likely written in " << language << "\nnum of bit: " << min << endl;
+    cout << "\nAverage of bits/symbol needed to write file in the wrong models: " << average << endl;
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<seconds>(stop - start);
     cout << "Processing Time: " << duration.count() << " s" << endl;

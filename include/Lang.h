@@ -31,9 +31,9 @@ class Lang{
          * Function that calls the \ref Fcm class and will return the minimum number of bits necessary to compress.
         */
         Fcm fcm_lang = Fcm(k,alpha,file_lang);
-        float entr = fcm_lang.doFCM();
-        float x = fcm_lang.auxFcm(file_text);
+        float num_bits = fcm_lang.doFCM();
+        num_bits = fcm_lang.auxFcm(file_text);
 
-        return x;
+        return num_bits;
     }
 };

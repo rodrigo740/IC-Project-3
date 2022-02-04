@@ -124,7 +124,7 @@ class Fcm {                                         //This program should provid
             if(condition<k){
                 condition++;
             }else{
-                if(table[chars] != NULL){
+                if(table.find(chars) != table.end()){
                     p = prob(chars);
                     num_bits = -log2(p);
                 }

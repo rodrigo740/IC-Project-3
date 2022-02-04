@@ -1,6 +1,0 @@
-sem internet
-sem internet
-experimente:
--verificar os cabos de rede, o modem e o router
--ligar novamente à rede wi-fi
-dns_probe_finished_no_internet
