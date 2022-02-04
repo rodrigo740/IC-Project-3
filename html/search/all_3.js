@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ic_2dproject_2d3',['IC-Project-3',['../autotoc_md0.html',1,'']]]
+  ['lang_6',['Lang',['../classLang.html',1,'Lang'],['../classLang.html#a533beab39d743e2ea1d0b0f0f9140368',1,'Lang::Lang()']]]
 ];

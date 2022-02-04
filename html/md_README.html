@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IC - Project 3: IC-Project-3</title>
+<title>IC - Project 3: Project-3: Finite Context Models</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,10 +63,30 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">IC-Project-3 </div>  </div>
+<div class="title">Project-3: Finite Context Models </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><p>This project provides a makefile, so it can be easy to compile and run all of he programs present in this repository.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Contents of the repository</h1>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Instructions</h1>
+<p>Compile all code:</p>
+<p><a class="anchor" id="autotoc_md3"></a></p><h5><code>make all</code> or just ##### <code>make</code></h5>
+<p>Compile specific file:</p>
+<p><a class="anchor" id="autotoc_md4"></a></p><h5><code>make teste_fcm</code></h5>
+<p><a class="anchor" id="autotoc_md5"></a></p><h5><code>make testFilter</code></h5>
+<p><a class="anchor" id="autotoc_md6"></a></p><h5><code>make test_lang</code></h5>
+<p><a class="anchor" id="autotoc_md7"></a></p><h5><code>make findlang</code></h5>
+<p>Clean the repository(remove all executables):</p>
+<p><a class="anchor" id="autotoc_md8"></a></p><h5><code>make clean</code></h5>
+<h1><a class="anchor" id="autotoc_md9"></a>
+How to run the programs</h1>
+<p><a class="anchor" id="autotoc_md10"></a></p><h5><code>./test_lang.o lang_models/portuguese.txt texts/sample_texts/lusiadas.txt 3 0.1</code></h5>
+<p><a class="anchor" id="autotoc_md11"></a></p><h5><code>./testFilter.o lang_models/portuguese.txt texts/portuguese_filtered.txt</code></h5>
+<p><a class="anchor" id="autotoc_md12"></a></p><h5><code>./teste_fcm.o lang_models/portuguese.txt texts/sample_texts/lusiadas.txt 3 0.1</code></h5>
+<p><a class="anchor" id="autotoc_md13"></a></p><h5><code>./findlang.o texts/sample_texts/lusiadas.txt 3 0.1 -f</code></h5>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
