@@ -63,7 +63,7 @@ Clean the repository (remove all executables):
 
 ### findlang.o
 
-This program supports two modes of operation, filtered and not filtered and is necessary to specify which mode needs to be used while running the program by using "-f" for filtered mode and "-nf" for not filtered mode.
+This program supports two modes of operation, filtered and not filtered and is necessary to specify which mode needs to be used while running the program by using `-f` for filtered mode and `-nf` for not filtered mode.
 
 ##### `./findlang.o texts/sample_texts/lusiadas.txt 3 0.1 -f`
 or
