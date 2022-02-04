@@ -26,7 +26,7 @@ This folder holds all of the texts used to test the developed software of this p
 
 ### CPP Files
 
-This project has 3 cpp files:
+This project has 4 cpp files:
 
 - testFilter.cpp
 - test_lang.cpp
